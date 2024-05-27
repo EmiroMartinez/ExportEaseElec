@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ExportEase - Asesoría de Exportación</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 20px;
+  }
+  .container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #5cb85c;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  button:hover {
+    background-color: #4cae4c;
+  }
+  .hidden {
+    display: none;
+  }
+  /* Estilo para la tabla */
+  table {
+    width: 70%;
+    border-collapse: collapse;
+    margin-top: 8px;
+  }
+  td {
+    border: 0,5px solid #ddd;
+    padding: 2px;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  tr:hover {
+    background-color: #ddd;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Bienvenido a ExportEase</h1>
+  <p>Seleccione el pais a exportar:</p>
+  <select id="pais-category">
+    <option value="">Desplegar el listado</option>
+    <option value="Nueva zelanda">Nueva zelanda</option>
+    <option value="Singapur">Singapur</option>
+    <option value="China">China</option>
+    <option value="Dinamarca">Dinamarca</option>
+    <option value="Corea">Corea</option>
+    <option value="Estados unidos">Estados unidos</option>
+  </select>
+
+
+<div class="container">
+  <p>Seleccione la categoría de su producto para recibir asesoría especializada:</p>
+  <select id="product-category">
+    <option value="">Seleccione una categoría</option>
+    <option value="fruta">Fruta</option>
+    <option value="textiles">Textiles</option>
+    <option value="tecnologia">Tecnología</option>
+    <option value="artesanias">Artesanías</option>
+    <option value="alimentos">Alimentos Procesados</option>
+    <option value="bebidas">Bebidas</option>
+  </select>
+  <select id="fruits-list" class="hidden">
+    <option value="aguacates">Aguacates</option>
+    <option value="Café">Café</option>
+    <!-- Agrega el resto de las opciones de frutas aquí -->
+    <option value="almendras">Almendras</option>
+    <option value="arándanos_rojos">Arándanos Rojos</option>
+    <option value="avellanas">Avellanas</option>
+    <!-- ... -->
+    <option value="nísperos">Nísperos</option>
+  </select>
+  <table id="Café-table" class="hidden">
+    <caption>ELABORACIÓN DEL PRODUCTO A EXPORTAR</caption>
+    <tr>
+      <td><input type="radio" id="aplastadas" name="elaboracion"><label for="aplastadas">APLASTADAS</label></td>
+    </tr>
+    <tr>
+      <td><input type="radio" id="rodajas" name="elaboracion"><label for="rodajas">CORTADAS EN RODAJAS</label></td>
+    </tr>
+    <tr>
+      <td><input type="radio" id="trozos" name="elaboracion"><label for="trozos">CORTADAS EN TROZOS</label></td>
+    </tr>
+    <tr>
+      <td><input type="radio" id="deshuesados" name="elaboracion"><label for="deshuesados">DESHUESADOS</label></td>
+    </tr>
+    <tr>
+      <td><input type="radio" id="enteras" name="elaboracion"><label for="enteras">ENTERAS</label></td>
+    </tr>
+    <tr>
+      <td><input type="radio" id="otro" name="elaboracion"><label for="otro">OTRO</label></td>
+    </tr>
+    <tr>
+      <td><input type="radio" id="rallado" name="elaboracion"><label for="rallado">RALLADO</label></td>
+    </tr>
+    <tr>
+      <td><input type="radio" id="troceados" name="elaboracion"><label for="troceados">TROCEADOS</label></td>
+    </tr>
+  </table>
+  <table id="Café-presentation" class="hidden">
+    <caption>PRESENTACIÓN DEL PRODUCTO A EXPORTAR</caption>
+    <tr>
+      <td><input type="radio" id="con_cascara" name="presentacion"><label for="con_cascara">CON CÁSCARA</label></td>
+    </tr>
+    <tr>
+      <td><input type="radio" id="cortezas" name="presentacion"><label for="cortezas">CORTEZAS</label></td>
+    </tr>
+    <tr>
+      <td><input type="radio" id="sin_cascara" name="presentacion"><label for="sin_cascara">SIN CÁSCARA</label></td>
+    </tr>
+    <tr>
+      <td><input type="radio" id="otro_presentacion" name="presentacion"><label for="otro_presentacion">OTRO</label></td>
+    </tr>
+    <tr id="otro_presentacion_text" class="hidden">
+      <td><input type="text" id="otro_presentacion_text_input" placeholder="Especificar otro tipo de presentación"></td>
+    </tr>
+  </table>
+
+<table id="Café-destination" class="hidden">
+  <caption>DESTINO DEL PRODUCTO A EXPORTAR</caption>
+  <tr>
+    <td><input type="radio" id="alimentacion_humana" name="destino"><label for="alimentacion_humana">ALIMENTACIÓN HUMANA</label></td>
+  </tr>
+  <tr>
+    <td><input type="radio" id="industria" name="destino"><label for="industria">INDUSTRIA</label></td>
+  </tr>
+  <tr>
+    <td><input type="radio" id="siembra" name="destino"><label for="siembra">SIEMBRA</label></td>
+  </tr>
+  <tr>
+    <td><input type="radio" id="otro_destino" name="destino"><label for="otro_destino">OTRO</label></td>
+  </tr>
+  <tr id="otro_destino_text" class="hidden">
+    <td><input type="text" id="otro_destino_text_input" placeholder="Especificar otro destino"></td>
+  </tr>
+</table>
+
+
+<table id="Café-conservation" class="hidden">
+  <caption>CONSERVACIÓN DEL PRODUCTO A EXPORTAR</caption>
+  <tr>
+    <td><input type="radio" id="agua_salada" name="conservacion"><label for="agua_salada">AGUA SALADA</label></td>
+  </tr>
+  <tr>
+    <td><input type="radio" id="agua_sulfurosa" name="conservacion"><label for="agua_sulfurosa">AGUA SULFUROSA</label></td>
+  </tr>
+  <tr>
+    <td><input type="radio" id="blanqueados" name="conservacion"><label for="blanqueados">BLANQUEADOS</label></td>
+  </tr>
+  <tr>
+    <td><input type="radio" id="congelados" name="conservacion"><label for="congelados">CONGELADOS</label></td>
+  </tr>
+  <tr>
+    <td><input type="radio" id="desecado" name="conservacion"><label for="desecado">DESECADO</label></td>
+  </tr>
+  <tr>
+    <td><input type="radio" id="escaldados" name="conservacion"><label for="escaldados">ESCALDADOS</label></td>
+  </tr>
+  <tr>
+    <td><input type="radio" id="frescos" name="conservacion"><label for="frescos">FRESCOS</label></td>
+  </tr>
+  <tr>
+    <td><input type="radio" id="gas_sulfuroso" name="conservacion"><label for="gas_sulfuroso">GAS SULFUROSO</label></td>
+  </tr>
+  <tr>
+    <td><input type="radio" id="otro_conservacion" name="conservacion"><label for="otro_conservacion">OTRO</label></td>
+  </tr>
+  <tr id="otro_conservacion_text" class="hidden">
+    <td><input type="text" id="otro_conservacion_text_input" placeholder="Especificar otra conservación"></td>
+  </tr>
+</table>
+
+
+
+
+  
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var categorySelect = document.getElementById('product-category');
+    var fruitsSelect = document.getElementById('fruits-list');
+    var CaféTable = document.getElementById('Café-table');
+    var CaféPresentation = document.getElementById('Café-presentation');
+    var CaféDestination = document.getElementById('Café-destination');
+    var CaféConservation = document.getElementById('Café-conservation');
+    var otroPresentationInput = document.getElementById('otro_presentacion_text');
+    var otroDestinationInput = document.getElementById('otro_destino_text');
+    var otroConservationInput = document.getElementById('otro_conservacion_text');
+
+    categorySelect.addEventListener('change', function() {
+      fruitsSelect.classList.toggle('hidden', this.value !== 'fruta');
+      CaféPresentation.classList.add('hidden');
+      CaféDestination.classList.add('hidden');
+      CaféConservation.classList.add('hidden');
+    });
+
+    fruitsSelect.addEventListener('change', function() {
+      CaféTable.classList.toggle('hidden', this.value !== 'Café');
+      if (this.value === 'Café') {
+        CaféPresentation.classList.remove('hidden');
+        CaféDestination.classList.remove('hidden');
+        CaféConservation.classList.remove('hidden');
+      } else {
+        CaféPresentation.classList.add('hidden');
+        CaféDestination.classList.add('hidden');
+        CaféConservation.classList.add('hidden');
+      }
+    });
+
+    document.getElementById('otro_presentacion').addEventListener('click', function() {
+      otroPresentationInput.classList.toggle('hidden', !this.checked);
+    });
+
+    document.getElementById('otro_destino').addEventListener('click', function() {
+      otroDestinationInput.classList.toggle('hidden', !this.checked);
+    });
+
+    document.getElementById('otro_conservacion').addEventListener('click', function() {
+      otroConservationInput.classList.toggle('hidden', !this.checked);
+    });
+  });
+</script>
+
+
+
+
+<!-- Elemento donde se mostrará la respuesta -->
+<div id="response" class="hidden"></div>
+
+<!-- Botón para obtener asesoría -->
+<button id="getAdviceButton" type="button">Obtener Asesoría</button>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Resto del código JS omitido para brevedad
+
+    document.getElementById('getAdviceButton').addEventListener('click', function() {
+      // Generar la respuesta
+      var responseContent = `
+        <h2>RESPUESTA:</h2>
+        <h3>REQUISITOS E INFORMACIÓN PARA EXPORTAR:</h3>
+        <ol>
+          <li>Índice Alfabético Arancelario<br>Es la identificación del producto en el comercio internacional<br>0811909100</li>
+          <li>Documentos soporte<br>Los documentos que se requieren para exportar:<br>Certificado fitosanitario - Instituto Colombiano Agropecuario</li>
+          <li>Descripciones de mercancías (Forma de tabla explicativa)<br>
+            <table border="1">
+              <tr>/th><th>Código</th><th>Producto</th></tr>
+              <tr>/td><td>32</td><td>Café</td></tr>
+            </table>
+            <table border="1">
+              <tr><th>Elaboración</th><th>Código</th><th>Presentación</th><th>Código</th><th>Destino</th><th>Código</th><th>Conservación</th><th>Código</th></tr>
+              <tr><td>Entero</td><td>5</td><td>CON CÁSCARA</td><td>1</td><td>ALIMENTACIÓN HUMANA</td><td>2</td><td>FRESCOS</td><td>5</td></tr>
+            </table>
+          </li>
+        </ol>
+      `;
+
+      // Mostrar la respuesta
+      var responseDiv = document.getElementById('response');
+      responseDiv.innerHTML = responseContent;
+      responseDiv.classList.remove('hidden');
+
+      // Cambiar el botón para volver a consultar
+      var getAdviceButton = document.getElementById('getAdviceButton');
+      getAdviceButton.textContent = "Volver a Consultar";
+
+      // Agregar evento para volver al inicio
+      getAdviceButton.addEventListener('click', function() {
+        window.location.reload(); // Recargar la página para volver al inicio
+      });
+    });
+  });
+</script>
+
